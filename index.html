@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Tweak these to change theme */
-      --bg1:#fafafa; --bg2:#f3f4f6; --bg3:#ffe9ea;         /* background gradient */
-      --ink:#0f172a; --muted:#475569;                      /* text colors */
-      --card:#ffffff; --line:#e5e7eb;                      /* card + borders */
-      --accent:#be123c; --accent-ink:#ffffff;              /* heading/buttons (YSU-leaning deep red) */
-      --pill:#fff1f2;                                      /* skill tags background */
+      /* Theme (blue accent) */
+      --bg1:#fafafa; --bg2:#f3f4f6; --bg3:#e6f0ff;          /* background gradient */
+      --ink:#0f172a; --muted:#475569;                       /* text colors */
+      --card:#ffffff; --line:#e5e7eb;                       /* card + borders */
+      --accent:#1d4ed8; --accent-ink:#ffffff;               /* heading/buttons (blue) */
+      --pill:#eef2ff; --pill-border:#c7d2fe;                /* skill tags */
     }
     *{box-sizing:border-box}
     html,body{margin:0; padding:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif; color:var(--ink);
@@ -36,7 +36,7 @@
     .tag{margin-top:8px; color:var(--muted); font-size:18px}
     header.card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px;
       display:flex; gap:14px; align-items:center; justify-content:space-between}
-    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--pill); border:1px solid #fecdd3;
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--pill); border:1px solid var(--pill-border);
       font-size:13px; margin:6px 6px 0 0}
     section{margin:26px 0 40px}
     section h2{font-size:20px; margin:0 0 12px; padding:0 0 10px; border-bottom:1px solid var(--line); letter-spacing:.2px; color:var(--accent)}
@@ -109,14 +109,13 @@
       <div class="grid">
         <article class="card">
           <div class="role">
-            <div class="title">Marketing Communications & Web Management — Youngstown State University, Housing & Residence Life</div>
+            <div class="title">Marketing Communications & Web Management — Youngstown State University</div>
             <div class="meta">Jan 2025 – Dec 12, 2025 · Youngstown, OH (hybrid)</div>
           </div>
           <ul>
             <li>Led multi-channel communications across web and social; authored site pages, email copy, and campaign assets aligned to brand.</li>
             <li>Planned and shipped content updates and microsites; improved student journeys and QR-based event flows.</li>
             <li>Built lightweight dashboards to monitor reach, conversions, and event participation; translated insight into content decisions.</li>
-            <li>Aligned stakeholders across Housing, ResLife, Dining, and campus partners; owned timelines, approvals, and deliverables.</li>
           </ul>
         </article>
 
@@ -201,14 +200,26 @@
       <div class="grid cols-2">
         <article class="card">
           <div class="role">
-            <div class="title">MBA, Healthcare Management (Conferred) — Western Governors University</div>
-            <div class="meta">Sep 2024 · Remote</div>
+            <div class="title">MBA, Healthcare Management — Western Governors University</div>
+            <div class="meta">Conferred Sep 2024 · Remote</div>
           </div>
         </article>
         <article class="card">
           <div class="role">
-            <div class="title">B.S. Biological Sciences; Minor: Plant Science (Conferred) — Texas Tech University</div>
-            <div class="meta">Dec 2023 · Lubbock, TX</div>
+            <div class="title">B.S. Biological Sciences; Minor: Plant Science — Texas Tech University</div>
+            <div class="meta">Conferred Dec 2023 · Lubbock, TX</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="role">
+            <div class="title">A.S. Agricultural Technology — Montego Bay Community College</div>
+            <div class="meta">Conferred 2022 · Hybrid</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="role">
+            <div class="title">A.S. Biology — El Paso Community College</div>
+            <div class="meta">Conferred 2022 · On-campus</div>
           </div>
         </article>
       </div>
@@ -233,8 +244,7 @@
       <h2>Contact</h2>
       <div class="card">
         <p><strong>Location:</strong> Kingston, Jamaica</p>
-        <p><strong>Email:</strong> <em>kalyciakington@gmail.com</em> · <strong>Phone:</strong> <em>876-391-2624</em></p>
-        <p><strong>Links:</strong> <a href="#">LinkedIn</a> · <a href="#">Portfolio</a></p>
+        <p><strong>Email:</strong> <em>add your email</em> · <strong>Phone:</strong> <em>add your phone</em></p>
       </div>
     </section>
 
@@ -244,3 +254,4 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
