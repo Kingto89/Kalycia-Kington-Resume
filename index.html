@@ -1,227 +1,227 @@
-import React from "react";
-
-// Simple, modern resume site in a single React component using Tailwind CSS
-// Edit the data objects below to update content.
-
-const DATA = {
-  name: "Kalycia Kington",
-  location: "Kingston, Jamaica",
-  email: "",
-  phone: "",
-  tagline:
-    "Communications, analytics, and operations — turning complex work into clear strategy.",
-  links: [
-    { label: "LinkedIn", href: "#" },
-    { label: "Portfolio", href: "#" },
-    { label: "Download PDF", href: "#" },
-  ],
-  education: [
-    {
-      school: "Western Governors University",
-      degree: "MBA, Healthcare Management (Conferred)",
-      time: "Sep 2024",
-      location: "Salt Lake City, UT (remote)",
-    },
-    {
-      school: "Texas Tech University",
-      degree: "B.S. Biological Sciences; Minor: Plant Science (Conferred)",
-      time: "Dec 2023",
-      location: "Lubbock, TX",
-    },
-  ],
-  experience: [
-    {
-      company: "Youngstown State University — Housing & Residence Life",
-      role: "Marketing Graduate Assistant (Communications & Web)",
-      time: "Jan 2025 – Dec 12, 2025",
-      location: "Youngstown, OH (hybrid)",
-      bullets: [
-        "Led multi‑channel campaigns across web and social; authored posts, email copy, and landing pages; coordinated brand standards.",
-        "Shipped website content updates and micro‑sites; improved student engagement journeys and QR‑driven event flows.",
-        "Built lightweight analytics dashboards (RStudio / web) to guide targeting and measure campaign performance.",
-        "Managed stakeholder alignment with Housing, ResLife, Dining, and campus partners; handled timelines and approvals.",
-      ],
-    },
-    {
-      company: "Emergence Health Network (Public Mental Health Authority)",
-      role: "Quality & Compliance Coordinator",
-      time: "Jun 2024 – Dec 2024",
-      location: "El Paso, TX",
-      bullets: [
-        "Oversaw quality assurance reviews across clinics; audited documentation against state and contractual standards.",
-        "Implemented and monitored SOPs; prepared executive reports for leadership and external oversight.",
-        "Coordinated onsite walkthroughs and corrective‑action follow‑ups to sustain accreditation readiness.",
-      ],
-    },
-    {
-      company: "Teleperformance",
-      role: "Talent Acquisition Lead",
-      time: "Nov 2015 – Aug 2021",
-      location: "Montego Bay, Jamaica",
-      bullets: [
-        "Hired 100+ staff across programs; ran interview days and onboarding; supported leadership pipeline interviews.",
-        "Created performance tracking and weekly reporting for 500+ employees; aligned coaching with compliance.",
-      ],
-    },
-    {
-      company: "Tourwise LTD",
-      role: "Account Management / Marketing Executive",
-      time: "Dec 2013 – Nov 2015",
-      location: "Ocho Rios, Jamaica",
-      bullets: [
-        "Represented brand at regional trade shows; managed accounts across LATAM, North America, and the Caribbean.",
-        "Ran social content calendars and email promotions; supported contract reviews for LATAM client intake.",
-      ],
-    },
-  ],
-  research: [
-    {
-      role: "Water‑Quality Researcher",
-      org: "El Paso Community College",
-      time: "Aug 2022 – Dec 2022",
-      bullets: [
-        "Collected and analyzed water‑quality samples; organized datasets; summarized findings for faculty review.",
-        "Applied RStudio for basic analysis and data visualization (trend charts, QC checks).",
-      ],
-    },
-    {
-      role: "Plant Bioactives Researcher (Anthocyanins)",
-      org: "Independent / Academic Lab",
-      time: "Jan 2023 – Jun 2023",
-      bullets: [
-        "Explored plant‑based sources of anthocyanins and potential applications; compiled literature reviews.",
-        "Drafted lab protocols and data collection templates; prepared concise write‑ups of results.",
-      ],
-    },
-    {
-      role: "Ecology Researcher (Land‑Use & Species Interactions)",
-      org: "Academic Project",
-      time: "Aug 2023 – Dec 2023",
-      bullets: [
-        "Studied land‑use patterns and species‑interaction boundaries; produced summary figures and briefs.",
-        "Contributed to environmental communication suitable for campus and community audiences.",
-      ],
-    },
-  ],
-  skills: [
-    "Corporate communications & PR",
-    "Campaign planning & execution",
-    "Stakeholder engagement",
-    "Web content & landing pages",
-    "RStudio & data visualization",
-    "Regulatory & SOP alignment",
-    "Spanish (bilingual; workplace use)",
-  ],
-};
-
-function Section({ title, children }) {
-  return (
-    <section className="mb-10">
-      <h2 className="text-xl font-semibold tracking-tight mb-4 border-b pb-2">{title}</h2>
-      {children}
-    </section>
-  );
-}
-
-function Card({ title, subtitle, meta, bullets }) {
-  return (
-    <div className="p-5 rounded-2xl border shadow-sm bg-white/70 hover:shadow-md transition">
-      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-sm text-gray-600">{meta}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalycia Kington — Resume</title>
+  <meta name="description" content="Resume of Kalycia Kington — communications, analytics, operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f7f8fb; --card:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e5e7eb; --pill:#eef2ff; --accent:#4f46e5; --accent-ink:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif; color:var(--ink); background:linear-gradient(120deg,#f9fafb, #f3f4f6 40%, #eef2ff);}    
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1080px; margin:0 auto; padding:0 20px}
+    .hero{padding:64px 0 32px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:end}
+    @media (max-width:900px){.hero{grid-template-columns:1fr; align-items:start}}
+    .name{font-weight:800; font-size:clamp(32px,5vw,44px); letter-spacing:-.02em}
+    .tag{margin-top:8px; color:var(--muted); font-size:18px}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--pill); border:1px solid #c7d2fe; font-size:13px; margin:6px 6px 0 0}
+    header.card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px; display:flex; gap:14px; align-items:center; justify-content:space-between}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--line); background:#fff}
+    .btn.primary{background:var(--accent); color:var(--accent-ink); border-color:transparent}
+    .grid{display:grid; gap:18px}
+    .cols-2{grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.cols-2{grid-template-columns:1fr}}
+    section{margin:26px 0 40px}
+    section h2{font-size:20px; margin:0 0 12px; padding:0 0 10px; border-bottom:1px solid var(--line); letter-spacing:.2px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 20px}
+    .role{display:flex; gap:10px; justify-content:space-between; align-items:flex-start}
+    .title{font-weight:600}
+    .meta{color:var(--muted); font-size:14px}
+    ul{margin:10px 0 0 20px}
+    li{margin:6px 0}
+    footer{margin:32px 0 60px; text-align:center; color:var(--muted); font-size:14px}
+    .stickybar{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(6px); background:rgba(255,255,255,.6); border-bottom:1px solid var(--line); z-index:5}
+    .stickybar .container{display:flex; align-items:center; justify-content:space-between; padding:10px 20px}
+  </style>
+</head>
+<body>
+  <!-- Sticky top nav -->
+  <div class="stickybar">
+    <div class="container">
+      <strong>Kalycia Kington</strong>
+      <div class="links">
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" onclick="window.print()">Download PDF</button>
       </div>
-      {subtitle && <p className="text-sm text-gray-700 mt-1">{subtitle}</p>}
-      {bullets && (
-        <ul className="list-disc pl-5 mt-3 space-y-1 text-[0.95rem]">
-          {bullets.map((b, i) => (
-            <li key={i}>{b}</li>
-          ))}
-        </ul>
-      )}
     </div>
-  );
-}
+  </div>
 
-export default function ResumeSite() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900">
-      {/* HERO */}
-      <header className="max-w-4xl mx-auto px-6 pt-14 pb-8">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{DATA.name}</h1>
-            <p className="mt-1 text-slate-700">{DATA.location}</p>
-          </div>
-          <div className="hidden sm:flex gap-3">
-            {DATA.links.map((l) => (
-              <a key={l.label} href={l.href} className="text-sm underline hover:no-underline">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <p className="mt-6 max-w-3xl text-lg">{DATA.tagline}</p>
-        <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-700">
-          {DATA.skills.slice(0, 5).map((s) => (
-            <span key={s} className="px-3 py-1 rounded-full border bg-white">{s}</span>
-          ))}
-        </div>
-      </header>
-
-      {/* CONTENT */}
-      <main className="max-w-4xl mx-auto px-6 pb-24 space-y-10">
-        <Section title="Experience">
-          <div className="grid gap-4">
-            {DATA.experience.map((e, idx) => (
-              <Card
-                key={idx}
-                title={`${e.role} — ${e.company}`}
-                subtitle={e.location}
-                meta={e.time}
-                bullets={e.bullets}
-              />
-            ))}
-          </div>
-        </Section>
-
-        <Section title="Research (placed within experience)">
-          <div className="grid gap-4">
-            {DATA.research.map((r, idx) => (
-              <Card
-                key={idx}
-                title={`${r.role} — ${r.org}`}
-                meta={r.time}
-                bullets={r.bullets}
-              />
-            ))}
-          </div>
-        </Section>
-
-        <Section title="Education">
-          <div className="grid gap-4">
-            {DATA.education.map((ed, idx) => (
-              <Card
-                key={idx}
-                title={ed.degree}
-                subtitle={`${ed.school} · ${ed.location}`}
-                meta={ed.time}
-              />
-            ))}
-          </div>
-        </Section>
-
-        <Section title="Skills & Tools">
-          <div className="flex flex-wrap gap-2">
-            {DATA.skills.map((s) => (
-              <span key={s} className="px-3 py-1 rounded-full border bg-white text-sm">{s}</span>
-            ))}
-          </div>
-        </Section>
-
-        <footer className="text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} {DATA.name}
-        </footer>
-      </main>
+  <!-- HERO -->
+  <div class="container hero">
+    <div>
+      <div class="name">Kalycia Kington</div>
+      <div class="tag">Kingston, Jamaica · Communications · Analytics · Operations</div>
+      <div style="margin-top:14px">
+        <span class="badge">Corporate Communications & PR</span>
+        <span class="badge">Stakeholder Engagement</span>
+        <span class="badge">Web Content & Landing Pages</span>
+        <span class="badge">RStudio & Data Viz</span>
+        <span class="badge">Regulatory & SOP Alignment</span>
+        <span class="badge">Spanish (bilingual; workplace use)</span>
+      </div>
     </div>
-  );
-}
+    <header class="card">
+      <div>
+        <div style="font-weight:600">Profile</div>
+        <p style="margin:6px 0 0; color:var(--muted)">Communications, analytics, and operations — turning complex work into clear strategy. Comfortable moving from raw data to finished communication for senior leadership, public use, and institutional stakeholders.</p>
+      </div>
+      <div>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </header>
+  </div>
+
+  <main class="container">
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="role">
+            <div class="title">Marketing Graduate Assistant (Communications & Web) — Youngstown State University, Housing & Residence Life</div>
+            <div class="meta">Jan 2025 – Dec 12, 2025 · Youngstown, OH (hybrid)</div>
+          </div>
+          <ul>
+            <li>Led multi‑channel campaigns across web and social; authored posts, email copy, and landing pages; coordinated brand standards.</li>
+            <li>Delivered website content updates and microsites; improved student engagement journeys and QR‑driven event flows.</li>
+            <li>Built lightweight analytics dashboards (RStudio / web) to guide targeting and measure campaign performance.</li>
+            <li>Managed stakeholder alignment with Housing, ResLife, Dining, and campus partners; handled timelines and approvals.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="role">
+            <div class="title">Quality & Compliance Coordinator — Emergence Health Network (Public Mental Health Authority)</div>
+            <div class="meta">Jun 2024 – Dec 2024 · El Paso, TX</div>
+          </div>
+          <ul>
+            <li>Oversaw quality assurance reviews across clinics; audited documentation against state and contractual standards.</li>
+            <li>Implemented and monitored SOPs; prepared executive reports for leadership and external oversight.</li>
+            <li>Coordinated onsite walkthroughs and corrective‑action follow‑ups to sustain accreditation readiness.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="role">
+            <div class="title">Talent Acquisition Lead — Teleperformance</div>
+            <div class="meta">Nov 2015 – Aug 2021 · Montego Bay, Jamaica</div>
+          </div>
+          <ul>
+            <li>Hired 100+ staff across programs; ran interview days and onboarding; supported leadership pipeline interviews.</li>
+            <li>Created performance tracking and weekly reporting for 500+ employees; aligned coaching with compliance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="role">
+            <div class="title">Account Management / Marketing Executive — Tourwise LTD</div>
+            <div class="meta">Dec 2013 – Nov 2015 · Ocho Rios, Jamaica</div>
+          </div>
+          <ul>
+            <li>Represented brand at regional trade shows; managed accounts across LATAM, North America, and the Caribbean.</li>
+            <li>Ran social content calendars and email promotions; supported contract reviews for LATAM client intake.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESEARCH placed within experience -->
+    <section id="research">
+      <h2>Research (within Experience)</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="role">
+            <div class="title">Water‑Quality Researcher — El Paso Community College</div>
+            <div class="meta">Aug 2022 – Dec 2022</div>
+          </div>
+          <ul>
+            <li>Collected and analyzed water‑quality samples; organized datasets; summarized findings for faculty review.</li>
+            <li>Applied RStudio for basic analysis and data visualization (trend charts, QC checks).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="role">
+            <div class="title">Plant Bioactives Researcher (Anthocyanins) — Independent / Academic Lab</div>
+            <div class="meta">Jan 2023 – Jun 2023</div>
+          </div>
+          <ul>
+            <li>Explored plant‑based sources of anthocyanins and potential applications; compiled literature reviews.</li>
+            <li>Drafted lab protocols and data‑collection templates; prepared concise write‑ups of results.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="role">
+            <div class="title">Ecology Researcher (Land‑Use & Species Interactions) — Academic Project</div>
+            <div class="meta">Aug 2023 – Dec 2023</div>
+          </div>
+          <ul>
+            <li>Studied land‑use patterns and species‑interaction boundaries; produced summary figures and briefs.</li>
+            <li>Contributed to environmental communication suitable for campus and community audiences.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="role">
+            <div class="title">MBA, Healthcare Management (Conferred) — Western Governors University</div>
+            <div class="meta">Sep 2024 · Remote</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="role">
+            <div class="title">B.S. Biological Sciences; Minor: Plant Science (Conferred) — Texas Tech University</div>
+            <div class="meta">Dec 2023 · Lubbock, TX</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills & Tools</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px">
+        <div class="card">Corporate communications & PR</div>
+        <div class="card">Campaign planning & execution</div>
+        <div class="card">Stakeholder engagement</div>
+        <div class="card">Web content & landing pages</div>
+        <div class="card">RStudio & data visualization</div>
+        <div class="card">Regulatory & SOP alignment</div>
+        <div class="card">Spanish (bilingual; workplace use)</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p><strong>Location:</strong> Kingston, Jamaica</p>
+        <p><strong>Email:</strong> <em>add your email</em> · <strong>Phone:</strong> <em>add your phone</em></p>
+        <p><strong>Links:</strong> <a href="#">LinkedIn</a> · <a href="#">Portfolio</a></p>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Kalycia Kington</footer>
+  </main>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
