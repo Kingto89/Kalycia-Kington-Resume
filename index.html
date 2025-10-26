@@ -1,0 +1,227 @@
+import React from "react";
+
+// Simple, modern resume site in a single React component using Tailwind CSS
+// Edit the data objects below to update content.
+
+const DATA = {
+  name: "Kalycia Kington",
+  location: "Kingston, Jamaica",
+  email: "",
+  phone: "",
+  tagline:
+    "Communications, analytics, and operations — turning complex work into clear strategy.",
+  links: [
+    { label: "LinkedIn", href: "#" },
+    { label: "Portfolio", href: "#" },
+    { label: "Download PDF", href: "#" },
+  ],
+  education: [
+    {
+      school: "Western Governors University",
+      degree: "MBA, Healthcare Management (Conferred)",
+      time: "Sep 2024",
+      location: "Salt Lake City, UT (remote)",
+    },
+    {
+      school: "Texas Tech University",
+      degree: "B.S. Biological Sciences; Minor: Plant Science (Conferred)",
+      time: "Dec 2023",
+      location: "Lubbock, TX",
+    },
+  ],
+  experience: [
+    {
+      company: "Youngstown State University — Housing & Residence Life",
+      role: "Marketing Graduate Assistant (Communications & Web)",
+      time: "Jan 2025 – Dec 12, 2025",
+      location: "Youngstown, OH (hybrid)",
+      bullets: [
+        "Led multi‑channel campaigns across web and social; authored posts, email copy, and landing pages; coordinated brand standards.",
+        "Shipped website content updates and micro‑sites; improved student engagement journeys and QR‑driven event flows.",
+        "Built lightweight analytics dashboards (RStudio / web) to guide targeting and measure campaign performance.",
+        "Managed stakeholder alignment with Housing, ResLife, Dining, and campus partners; handled timelines and approvals.",
+      ],
+    },
+    {
+      company: "Emergence Health Network (Public Mental Health Authority)",
+      role: "Quality & Compliance Coordinator",
+      time: "Jun 2024 – Dec 2024",
+      location: "El Paso, TX",
+      bullets: [
+        "Oversaw quality assurance reviews across clinics; audited documentation against state and contractual standards.",
+        "Implemented and monitored SOPs; prepared executive reports for leadership and external oversight.",
+        "Coordinated onsite walkthroughs and corrective‑action follow‑ups to sustain accreditation readiness.",
+      ],
+    },
+    {
+      company: "Teleperformance",
+      role: "Talent Acquisition Lead",
+      time: "Nov 2015 – Aug 2021",
+      location: "Montego Bay, Jamaica",
+      bullets: [
+        "Hired 100+ staff across programs; ran interview days and onboarding; supported leadership pipeline interviews.",
+        "Created performance tracking and weekly reporting for 500+ employees; aligned coaching with compliance.",
+      ],
+    },
+    {
+      company: "Tourwise LTD",
+      role: "Account Management / Marketing Executive",
+      time: "Dec 2013 – Nov 2015",
+      location: "Ocho Rios, Jamaica",
+      bullets: [
+        "Represented brand at regional trade shows; managed accounts across LATAM, North America, and the Caribbean.",
+        "Ran social content calendars and email promotions; supported contract reviews for LATAM client intake.",
+      ],
+    },
+  ],
+  research: [
+    {
+      role: "Water‑Quality Researcher",
+      org: "El Paso Community College",
+      time: "Aug 2022 – Dec 2022",
+      bullets: [
+        "Collected and analyzed water‑quality samples; organized datasets; summarized findings for faculty review.",
+        "Applied RStudio for basic analysis and data visualization (trend charts, QC checks).",
+      ],
+    },
+    {
+      role: "Plant Bioactives Researcher (Anthocyanins)",
+      org: "Independent / Academic Lab",
+      time: "Jan 2023 – Jun 2023",
+      bullets: [
+        "Explored plant‑based sources of anthocyanins and potential applications; compiled literature reviews.",
+        "Drafted lab protocols and data collection templates; prepared concise write‑ups of results.",
+      ],
+    },
+    {
+      role: "Ecology Researcher (Land‑Use & Species Interactions)",
+      org: "Academic Project",
+      time: "Aug 2023 – Dec 2023",
+      bullets: [
+        "Studied land‑use patterns and species‑interaction boundaries; produced summary figures and briefs.",
+        "Contributed to environmental communication suitable for campus and community audiences.",
+      ],
+    },
+  ],
+  skills: [
+    "Corporate communications & PR",
+    "Campaign planning & execution",
+    "Stakeholder engagement",
+    "Web content & landing pages",
+    "RStudio & data visualization",
+    "Regulatory & SOP alignment",
+    "Spanish (bilingual; workplace use)",
+  ],
+};
+
+function Section({ title, children }) {
+  return (
+    <section className="mb-10">
+      <h2 className="text-xl font-semibold tracking-tight mb-4 border-b pb-2">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function Card({ title, subtitle, meta, bullets }) {
+  return (
+    <div className="p-5 rounded-2xl border shadow-sm bg-white/70 hover:shadow-md transition">
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="text-sm text-gray-600">{meta}</p>
+      </div>
+      {subtitle && <p className="text-sm text-gray-700 mt-1">{subtitle}</p>}
+      {bullets && (
+        <ul className="list-disc pl-5 mt-3 space-y-1 text-[0.95rem]">
+          {bullets.map((b, i) => (
+            <li key={i}>{b}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export default function ResumeSite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900">
+      {/* HERO */}
+      <header className="max-w-4xl mx-auto px-6 pt-14 pb-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{DATA.name}</h1>
+            <p className="mt-1 text-slate-700">{DATA.location}</p>
+          </div>
+          <div className="hidden sm:flex gap-3">
+            {DATA.links.map((l) => (
+              <a key={l.label} href={l.href} className="text-sm underline hover:no-underline">
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <p className="mt-6 max-w-3xl text-lg">{DATA.tagline}</p>
+        <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-700">
+          {DATA.skills.slice(0, 5).map((s) => (
+            <span key={s} className="px-3 py-1 rounded-full border bg-white">{s}</span>
+          ))}
+        </div>
+      </header>
+
+      {/* CONTENT */}
+      <main className="max-w-4xl mx-auto px-6 pb-24 space-y-10">
+        <Section title="Experience">
+          <div className="grid gap-4">
+            {DATA.experience.map((e, idx) => (
+              <Card
+                key={idx}
+                title={`${e.role} — ${e.company}`}
+                subtitle={e.location}
+                meta={e.time}
+                bullets={e.bullets}
+              />
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Research (placed within experience)">
+          <div className="grid gap-4">
+            {DATA.research.map((r, idx) => (
+              <Card
+                key={idx}
+                title={`${r.role} — ${r.org}`}
+                meta={r.time}
+                bullets={r.bullets}
+              />
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Education">
+          <div className="grid gap-4">
+            {DATA.education.map((ed, idx) => (
+              <Card
+                key={idx}
+                title={ed.degree}
+                subtitle={`${ed.school} · ${ed.location}`}
+                meta={ed.time}
+              />
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Skills & Tools">
+          <div className="flex flex-wrap gap-2">
+            {DATA.skills.map((s) => (
+              <span key={s} className="px-3 py-1 rounded-full border bg-white text-sm">{s}</span>
+            ))}
+          </div>
+        </Section>
+
+        <footer className="text-center text-sm text-slate-500">
+          © {new Date().getFullYear()} {DATA.name}
+        </footer>
+      </main>
+    </div>
+  );
+}
